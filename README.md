@@ -77,6 +77,12 @@ Lista local:
     "email": "myemail2@test.com.br"
   },
   {
+    "name": "My name 3",
+    "cpf": "45486737688",
+    "phone": "11987654321",
+    "email": "myemail3@test.com.br"
+  },
+  {
     "name": "My name 4",
     "cpf": "74668869066",
     "phone": "11987654321",
@@ -104,25 +110,41 @@ Lista local:
 ### Input:
  - Cor da fonte sem foco: <span style="color:#efeeed">*#efeeed*</span>.
  - Cor da fonte com foco: <span style="color:#333333">*#333333*</span>.
- - Cor da borda: <span style="color:#EFEEED">*#EFEEED*</span>.
+ - Cor da borda: <span style="color:#efeeed">*#efeeed*</span>.
 
-### Botão Inativo:
- - Cor da fonte sem foco: <span style="color:#dddcdc">*#DDDCDC*</span>.
- - Cor de background: <span style="color:#f6f6f6">*#F6F6F6*</span>.
-
-![defualt](./images/default.png)
+![inputs](./images/name.png)
 
 ### Input Inválido:
- - Cor da fonte: <span style="color:#EB4A46">*#EB4A46*</span>.
- - Cor da borda: <span style="color:#EB4A46">*#EB4A46*</span>.
+ - Cor da fonte: <span style="color:#eb4a46">*#eb4a46*</span>.
+ - Cor da borda: <span style="color:#eb4a46">*#eb4a46*</span>.
 
-![errors](./images/errors.png)
+![inputs](./images/name_validation.png)
 
-### Botão Ativo:
- - Cor da fonte com foco: <span style="color:#ffffff">*#FFFFFF*</span>.
- - Cor de background: <span style="color:#00c8b3">*#00C8B3*</span>.
+### Botão Abilitado:
+ - Cor da fonte com foco: <span style="color:#ffffff">*#ffffff*</span>.
+ - Cor de background: <span style="color:#00c8b3">*#00c8b3*</span>.
+
+![inputs](./images/button_enable.png)
+
+### Botão Hover:
  - Opacidade do botão com hover: 70%.
 
-![success](./images/success.png)
+![inputs](./images/button_enable_hover.png)
+
+### Botão Desabilitado:
+ - Cor da fonte sem foco: <span style="color:#dddcdc">*#dddcdc*</span>.
+ - Cor de background: <span style="color:#f6f6f6">*#f6f6f6*</span>.
+
+![inputs](./images/button_disable.png)
+
+### Botão Loading:
+
+![inputs](./images/button_enable_loading.png)
 
 **Criar animação de loading ao clicar no submit*
+
+### Exemplo final
+
+![inputs](./images/form.png)
+
+** Use sua criatividade para criar a página para listar os dados cadastrados **
