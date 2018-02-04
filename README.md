@@ -16,7 +16,7 @@ Seu objetivo é criar um simples app que deve conter duas páginas, uma que exib
  - Deve ser possível criar, listar e excluir os dados cadastrados pelo formulário;
  - Os inputs de texto e botão devem ter a aparência conforme o guia de estilo abaixo (com validações);
  - Fazer a persistência dos dados no `localStorage` ou `IndexedDB`;
- - Não é permitido a utilização de nenhum framework, recomandado uso de ECMAScript 6+;
+ - Não é permitido a utilização de nenhum framework ou o uso de qualquer biblioteca (exceto para testes unitário e tasks de build), recomandado uso de ECMAScript 6+;
 
 Para ter o estado inicial da lista de usuário utilizar este recurso abaixo:
 
