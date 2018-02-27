@@ -1,0 +1,14 @@
+.material-button{
+    width: 100%;
+    background-color: $backgroundBtn;
+    border-radius: 50px;
+    border: none;
+    padding: 15px;
+    font-size: 30px;
+    color: $defaultBtn;
+
+    &:hover{
+        opacity: .7;
+        cursor: pointer;
+    }
+}

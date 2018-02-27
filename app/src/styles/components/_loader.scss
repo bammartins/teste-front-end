@@ -1,0 +1,20 @@
+.loader {
+    width: 30px;
+    height: 30px;
+    margin: 40px auto;
+    border-radius: 50%;
+    transform-origin: 50%;
+    animation: load 0.5s steps(8, end) infinite;
+    border: 3px solid $defaultBtn;
+    border-bottom: none;
+    border-right: none;
+    position: absolute;
+    left: 47%;
+    top: -20px;
+    display: none;
+}
+
+@keyframes load {
+  0% { transform: rotate(0); }
+  100% { transform: rotate(360deg); }
+}
