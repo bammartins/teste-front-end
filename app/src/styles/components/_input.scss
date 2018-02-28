@@ -21,7 +21,9 @@
             transition: all .2s ease-out;
         }
         
-        &:focus{
+        &:focus, 
+        &.has-value
+        {
             outline: none;
             border-width:1px;
             border-color:$focus;
@@ -36,8 +38,13 @@
             font-size:12px;
         }
         &.has-value:not(:focus) + label{
-            color:$default;
+            color:$focus;
         }        
         
+    }
+
+    .error-message{
+        font-family:Roboto, sans-serif;
+        color: red;
     }
 }
