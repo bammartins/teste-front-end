@@ -1,7 +1,3 @@
-
-
-[![license](https://img.shields.io/github/license/mashape/apistatus.svg)](https://github.com/julian-kuroiwa/Kuro-Boilerplate/blob/master/LICENSE.md)
-
 This project uses ES6, SASS, Gulp and Browsersync.
 
 Maybe you want to read about them:
@@ -20,6 +16,7 @@ First of all, install the dependencies.
 ## Credits
 Julian Kuroiwa - [Boilerplate]
 - https://github.com/julian-kuroiwa
+
 Tome Vilela - [CPF Validation]
 - https://github.com/tome-vilela
 
