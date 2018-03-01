@@ -8,6 +8,7 @@ class EventHandler{
 
     buttonClick(){
         let button  = document.getElementById('send');
+        
         button.addEventListener('click', (e)=>{            
             e.preventDefault();
             e.stopPropagation();
@@ -15,9 +16,11 @@ class EventHandler{
             let emailField = document.getElementById('email').value;
             let cpfField   = document.getElementById('cpf').value;
             let phoneField = document.getElementById('phone').value;
-
-            this.user.set(nameField, emailField, cpfField, phoneField);
-        });  
+            
+            if (button.classList.value.indexOf('disabled') == -1) {
+                this.user.set(nameField, emailField, cpfField, phoneField);
+            }
+        });
     }
 }
 

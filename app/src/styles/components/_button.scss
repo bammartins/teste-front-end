@@ -1,4 +1,5 @@
 .material-button{
+    outline: none;
     width: 100%;
     background-color: $backgroundBtn;
     border-radius: 50px;
@@ -10,5 +11,14 @@
     &:hover{
         opacity: .7;
         cursor: pointer;
+    }
+
+    &.disabled{
+        background-color: $disableBackgroung;
+        color: $disableBtnfont;
+
+        &:hover{
+            opacity: 1;
+        }
     }
 }
