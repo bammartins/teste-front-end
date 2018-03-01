@@ -1,5 +1,6 @@
 import userController from './UserController.js';
 
+
 class EventHandler{
     constructor(){
         this.user = new userController();
@@ -7,7 +8,6 @@ class EventHandler{
 
     buttonClick(){
         let button  = document.getElementById('send');
-
         button.addEventListener('click', (e)=>{            
             e.preventDefault();
             e.stopPropagation();

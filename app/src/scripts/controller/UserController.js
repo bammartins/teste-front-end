@@ -1,3 +1,6 @@
+import validationController from "./FormController.js";
+
+
 class UserController{
     constructor(){
         this.id;
@@ -11,6 +14,8 @@ class UserController{
         let arrUser = [];
         let newUser = {};
         let id = 1;
+        let validateFields = new validationController();
+        
         
         if (localStorage.getItem('users') != null){
             arrUser = JSON.parse(localStorage.getItem('users'));
@@ -33,9 +38,11 @@ class UserController{
             "email": this.email 
         };
 
-        arrUser.push(newUser);
-        localStorage.setItem('users', JSON.stringify(arrUser));
-        localStorage.setItem('lastId', this.id);       
+        if (validateFields.validateFields()) {
+            arrUser.push(newUser);
+            localStorage.setItem('users', JSON.stringify(arrUser));
+            localStorage.setItem('lastId', this.id);       
+        }
     }
 
     get(){
