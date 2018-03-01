@@ -11,10 +11,12 @@ const init = () =>{
     const form = new formAnimation();
     const eventHandler = new eventController();
     const formFill = new formController();
+    const user = new userController();
     
     let inputs = document.querySelectorAll('.material-input');
     let button = document.getElementById('send');
     
+    user.get();
     form.animateForm();          
     eventHandler.buttonClick(); 
     

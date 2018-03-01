@@ -1,4 +1,5 @@
 import validationController from "./FormController.js";
+import createEl from "../helper/CreateElement.js";
 
 
 class UserController{
@@ -46,7 +47,7 @@ class UserController{
     }
 
     get(){
-
+        const userList = JSON.parse(localStorage.getItem('users'));
     }
 
     edit(){
