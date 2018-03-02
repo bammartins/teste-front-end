@@ -89,7 +89,7 @@ gulp.task('js', () => {
         .bundle()
         .pipe(source('main.min.js'))
         .pipe(buffer())
-        .pipe(uglify())
+        // .pipe(uglify())
         .pipe(sourcemaps.init({ loadMaps: true }))
         .pipe(sourcemaps.write())
         .pipe(gulp.dest(paths.scripts.dest));

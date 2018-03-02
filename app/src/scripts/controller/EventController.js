@@ -23,6 +23,18 @@ class EventHandler{
             });
         }
     }
+
+    deleteClick(){
+        let deleteBtn  = document.getElementById('delete');
+        if(deleteBtn != null){
+            console.log(deleteBtn);
+            deleteBtn.addEventListener('click', (e) => {
+                e.preventDefault();
+                e.stopPropagation();  
+                console.log(deleteBtn.getAttribute('data-id'));
+            });
+        }
+    }
 }
 
 module.exports = EventHandler;

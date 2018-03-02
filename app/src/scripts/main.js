@@ -19,6 +19,7 @@ const init = () =>{
     form.animateForm();          
     eventHandler.buttonClick(); 
     
+    
     for (let i = 0; i < inputs.length; i++) {
         inputs[i].addEventListener("blur", () => {
             if (formFill.validateFillFields()) {
