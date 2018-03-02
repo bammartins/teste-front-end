@@ -27,7 +27,7 @@ class FormController{
             setTimeout(() => {
                 button.setAttribute('value', 'Cadastrar');
                 loader.style.display = "none";
-            }, 3000);
+            }, 1500);
         });
     }
 }

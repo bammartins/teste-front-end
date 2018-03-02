@@ -16,7 +16,6 @@ const init = () =>{
     let inputs = document.querySelectorAll('.material-input');
     let button = document.getElementById('send');
     
-    user.get();
     form.animateForm();          
     eventHandler.buttonClick(); 
     
@@ -24,8 +23,11 @@ const init = () =>{
         inputs[i].addEventListener("blur", () => {
             if (formFill.validateFillFields()) {
                 button.classList.remove('disabled');
-                form.loadButtonAnimate();
+                if(formFill.validateFields()){
+                    form.loadButtonAnimate();
+                }
             } 
         })
     }    
+    user.get();
 }

@@ -1,0 +1,20 @@
+.list-user{
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+
+    .list-user-item{
+        font: 200 20px/1.5 Helvetica, Verdana, sans-serif;
+        border-bottom: 1px solid #ccc;
+        color: $focus;
+
+        &:last-child {
+            border: none;
+        }
+
+        .user-name-content,
+        .user-full-content{
+            display: inline-block;
+        }
+    }
+}
