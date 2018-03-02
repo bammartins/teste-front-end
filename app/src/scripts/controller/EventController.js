@@ -25,14 +25,18 @@ class EventHandler{
     }
 
     deleteClick(){
-        let deleteBtn  = document.getElementById('delete');
-        if(deleteBtn != null){
-            console.log(deleteBtn);
+        let deleteBtn  = document.querySelector('.list-user');
+        let currentEl  = null;
+        let listItem   = null;
+        if (deleteBtn != null){
             deleteBtn.addEventListener('click', (e) => {
                 e.preventDefault();
-                e.stopPropagation();  
-                console.log(deleteBtn.getAttribute('data-id'));
-            });
+                if ( e.target && e.target.classList.contains( 'delete' ) ) {
+                    currentEl = e.target;
+                    listItem = document.getElementById(currentEl.getAttribute('data-id')).remove();
+                    this.user.delete(currentEl.getAttribute('data-id'));
+                }
+            });                    
         }
     }
 }

@@ -18,6 +18,7 @@ const init = () =>{
     
     form.animateForm();          
     eventHandler.buttonClick(); 
+    eventHandler.deleteClick(); 
     
     
     for (let i = 0; i < inputs.length; i++) {

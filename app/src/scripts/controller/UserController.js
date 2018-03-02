@@ -1,5 +1,4 @@
 import validationController from "./FormController.js";
-// import eventController from "./EventController.js";
 import createEl from "../helper/CreateElement.js";
 
 
@@ -48,7 +47,6 @@ class UserController{
     }
 
     get(funcDelete){
-        // let eventHandler = new eventController();
         let template = "";
         const userList = JSON.parse(localStorage.getItem('users'));
         const userListEl = document.getElementById('list-user');
@@ -60,30 +58,35 @@ class UserController{
                 listItem.classList.add('list-user-item');
                 listItem.setAttribute('id', el.id);
                         template = `<div class="user-name-content">
-                                <span class="list-text" id="user-name">${el.name}</span>
-                            </div>
-                            <div class="user-full-content">
-                                <span class="list-text" id="user-email">${el.email}</span>
-                                <span class="list-text" id="user-cpf">${el.cpf}</span>
-                                <span class="list-text" id="user-phone">${el.phone}</span>
-                                <button type="button" id="edit">Editar</button>
-                                <button type="button" id="delete" data-id=${el.id}>Deletar</button>
-                            </div>`;
+                                        <span class="list-text" id="user-name">${el.name}</span>
+                                    </div>
+                                    <div class="user-full-content">
+                                        <span class="list-text" id="user-email">${el.email}</span>
+                                        <span class="list-text" id="user-cpf">${el.cpf}</span>
+                                        <span class="list-text" id="user-phone">${el.phone}</span>
+                                        <button type="button" id="edit">Editar</button>
+                                        <button type="button" class="delete" data-id=${el.id}>Deletar</button>
+                                    </div>`;
                 listItem.innerHTML = template;
                 userListEl.appendChild(listItem);
             });
-            // eventHandler.deleteClick();
         }                        
+    }
+
+    delete(itemId){
+        const userList = JSON.parse(localStorage.getItem('users'));
+        for (var i = 0; i < userList.length; i++) {
+            if(parseInt(itemId) == userList[i].id){
+                userList.splice(i, 1);
+            }            
+        }
+        localStorage.setItem('users', JSON.stringify(userList));
     }
 
     edit(){
 
     }
 
-    delete(){
-
-
-    }
 }
 
 module.exports = UserController;
