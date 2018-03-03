@@ -42,15 +42,16 @@ class UserController{
         if (validateFields.validateFields()) {
             arrUser.push(newUser);
             localStorage.setItem('users', JSON.stringify(arrUser));
-            localStorage.setItem('lastId', this.id);       
+            localStorage.setItem('lastId', this.id);
         }
     }
 
     get(funcDelete){
         let template = "";
         const userList = JSON.parse(localStorage.getItem('users'));
+        const tempUserList = JSON.parse(localStorage.getItem('tempUsers'));
         const userListEl = document.getElementById('list-user');
-        if(userListEl != null){
+        if (userListEl != null && userList != null){
             userListEl.innerHTML = '';
 
             userList.forEach((el) => {
@@ -58,19 +59,60 @@ class UserController{
                 listItem.classList.add('list-user-item');
                 listItem.setAttribute('id', el.id);
                         template = `<div class="user-name-content">
-                                        <span class="list-text" id="user-name">${el.name}</span>
+                                        <span class="list-text" id="user-name">${el.name} - ${el.cpf}</span>
                                     </div>
                                     <div class="user-full-content">
-                                        <span class="list-text" id="user-email">${el.email}</span>
-                                        <span class="list-text" id="user-cpf">${el.cpf}</span>
-                                        <span class="list-text" id="user-phone">${el.phone}</span>
-                                        <button type="button" id="edit">Editar</button>
-                                        <button type="button" class="delete" data-id=${el.id}>Deletar</button>
+                                        <div class="user-info">
+                                            <span class="list-text" id="user-email"><strong>Email:</strong> ${el.email}</span>
+                                            <span class="list-text" id="user-phone"><strong>Tel:</strong> ${el.phone}</span>
+                                        </div>
+                                        <div class="user-action">
+                                            <button type="button" class="action-btn edit icon-pencil" id="edit"></button>
+                                            <button type="button" class="action-btn delete icon-cancel-circle" data-id=${el.id}></button>
+                                        </div>
                                     </div>`;
                 listItem.innerHTML = template;
                 userListEl.appendChild(listItem);
             });
-        }                        
+        } 
+        if (userListEl != null && tempUserList != null && userList != null){
+            if (userList == null || userList.length == 0) {
+                userListEl.innerHTML = '';
+                tempUserList.forEach((el) => {
+                    let listItem = document.createElement('li');
+                    listItem.classList.add('list-user-item');
+                    listItem.setAttribute('id', el.id);
+                    template = `<div class="user-name-content">
+                                            <span class="list-text" id="user-name">${el.name} - ${el.cpf}</span>
+                                        </div>
+                                        <div class="user-full-content">
+                                            <span class="list-text" id="user-email">Email: ${el.email}</span>
+                                            <span class="list-text" id="user-phone">Tel: ${el.phone}</span>
+                                        </div>`;
+                    listItem.innerHTML = template;
+                    userListEl.appendChild(listItem);
+                }) ;              
+                
+            }
+        }
+        
+        
+    }
+
+    promiseGet(){
+        const userList = JSON.parse(localStorage.getItem('users'));
+        const url = "https://private-21e8de-rafaellucio.apiary-mock.com/users";
+
+        if (userList == null) {
+            fetch(url, { headers: { "Content-Type": "application/json; charset=utf-8" } })
+            .then(res => res.json())
+            .then(response => {
+                localStorage.setItem('tempUsers', JSON.stringify(response));
+            })
+            .catch(err => {               
+                console.log("sorry, there are no results for your search")
+            });
+        }
     }
 
     delete(itemId){

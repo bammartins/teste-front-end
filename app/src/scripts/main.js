@@ -19,7 +19,7 @@ const init = () =>{
     form.animateForm();          
     eventHandler.buttonClick(); 
     eventHandler.deleteClick(); 
-    
+    eventHandler.maskInputs();
     
     for (let i = 0; i < inputs.length; i++) {
         inputs[i].addEventListener("blur", () => {
@@ -32,4 +32,5 @@ const init = () =>{
         })
     }    
     user.get();
+    user.promiseGet();
 }

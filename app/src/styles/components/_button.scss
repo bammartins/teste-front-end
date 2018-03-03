@@ -22,3 +22,24 @@
         }
     }
 }
+
+.action-btn {
+    background: transparent;
+    border: none;
+    transition: all .5s;
+    color: $focus;
+    outline: none;
+    &:hover{
+        cursor: pointer;
+        &.delete{
+            color: #c43330;
+            font-size: 33px; 
+        }
+
+        &.edit{
+            color: #eea73f;
+            font-size: 33px; 
+        }
+    }
+
+}

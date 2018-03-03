@@ -35,6 +35,7 @@ class FormController{
             document.getElementById('name-error').innerText = this.errorMessage;
             this.errorCount++;
         } else {
+            this.errorCount--;
             document.getElementById('name-error').innerText = "";
         }
         if (cpfTest.validate(this.cpfField.value) == false) {
@@ -42,6 +43,7 @@ class FormController{
             document.getElementById('cpf-error').innerText = this.errorMessage;
             this.errorCount++;
         } else {
+            this.errorCount--;            
             document.getElementById('cpf-error').innerText = "";
         }
         if (!this.emailField.value.match(mailRegex)) {
@@ -49,6 +51,7 @@ class FormController{
             document.getElementById('email-error').innerText = this.errorMessage;
             this.errorCount++;
         } else {
+            this.errorCount--;            
             document.getElementById('email-error').innerText = "";
         }
         if (this.phoneField.value == "") {
@@ -56,6 +59,7 @@ class FormController{
             document.getElementById('phone-error').innerText = this.errorMessage;
             this.errorCount++;
         } else {
+            this.errorCount--;            
             document.getElementById('phone-error').innerText = "";
         }
 
@@ -64,7 +68,7 @@ class FormController{
         } else {
             return true;
         }
-    }
+    }  
 }
 
 module.exports = FormController;

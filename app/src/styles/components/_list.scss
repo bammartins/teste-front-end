@@ -1,20 +1,43 @@
+.list-user-title {
+    display: block;
+    text-align: center;
+    margin: 20px 0;
+    color: #333;
+}
 .list-user{
     list-style-type: none;
-    margin: 0;
     padding: 0;
+    width: 700px;
+    margin: 0 auto;
 
     .list-user-item{
-        font: 200 20px/1.5 Helvetica, Verdana, sans-serif;
+        font: 200 20px/1.5 Roboto, sans-serif;
         border-bottom: 1px solid #ccc;
+        padding: 10px 5px;
+        transition: all .5s;
         color: $focus;
+            
+            &:last-child {
+                border: none;
+            }
+            
+            &:nth-child(odd) {
+                color: $default;
+                background-color: rgba(78, 60, 136, 0.77);
+            }
 
-        &:last-child {
-            border: none;
-        }
-
-        .user-name-content,
         .user-full-content{
-            display: inline-block;
+            position: relative;
+            .user-info{
+                display: inline-block;
+                width: 85%;
+            }
+            .user-action{
+                display: inline-block;
+                font-size: 30px;
+                position: absolute;
+                bottom: 5px;
+            }
         }
     }
 }

@@ -27,6 +27,7 @@ class FormController{
             setTimeout(() => {
                 button.setAttribute('value', 'Cadastrar');
                 loader.style.display = "none";
+                window.location.href = "/listuser.html"
             }, 1500);
         });
     }
