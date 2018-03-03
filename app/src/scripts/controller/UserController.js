@@ -1,5 +1,4 @@
 import validationController from "./FormController.js";
-import createEl from "../helper/CreateElement.js";
 
 
 class UserController{
@@ -32,7 +31,7 @@ class UserController{
         this.phone = phone;
 
         newUser = {
-            "id"   :this.id, 
+            "id"   : this.id, 
             "name" : this.name, 
             "cpf"  : this.cpf, 
             "phone": this.phone, 
@@ -46,7 +45,7 @@ class UserController{
         }
     }
 
-    get(funcDelete){
+    get(){
         let template = "";
         const userList = JSON.parse(localStorage.getItem('users'));
         const tempUserList = JSON.parse(localStorage.getItem('tempUsers'));
@@ -67,7 +66,7 @@ class UserController{
                                             <span class="list-text" id="user-phone"><strong>Tel:</strong> ${el.phone}</span>
                                         </div>
                                         <div class="user-action">
-                                            <button type="button" class="action-btn edit icon-pencil" id="edit"></button>
+                                            <button type="button" class="action-btn edit icon-pencil" data-id=${el.id} id="edit"></button>
                                             <button type="button" class="action-btn delete icon-cancel-circle" data-id=${el.id}></button>
                                         </div>
                                     </div>`;
@@ -125,8 +124,21 @@ class UserController{
         localStorage.setItem('users', JSON.stringify(userList));
     }
 
-    edit(){
-
+    edit(itemId, name, email, cpf, phone){
+        const userList = JSON.parse(localStorage.getItem('users'));
+        for (let i = 0; i < userList.length; i++) {
+            if (parseInt(itemId) == userList[i].id) {
+                userList[i] = {
+                    "id": userList[i].id,
+                    "name": name,
+                    "cpf": cpf,
+                    "phone": phone,
+                    "email": email 
+                }
+            }            
+        }  
+        
+        localStorage.setItem('users', JSON.stringify(userList));
     }
 
 }

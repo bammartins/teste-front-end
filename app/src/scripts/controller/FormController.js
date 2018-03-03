@@ -68,7 +68,41 @@ class FormController{
         } else {
             return true;
         }
-    }  
+    }
+    
+
+
+    editForm() {
+        let urlParam = window.location;
+        let parameter = urlParam.search.substring(1);
+        let id = null;
+        let button = document.getElementById('send');
+        if (parameter != "") {
+            const userList = JSON.parse(localStorage.getItem('users'));
+            id = parameter.split('=');
+
+            for (let i = 0; i < userList.length; i++) {
+                if (parseInt(id[1]) == userList[i].id) {
+                    this.nameField.value = userList[i].name;
+                    this.emailField.value = userList[i].email;
+                    this.cpfField.value = userList[i].cpf;
+                    this.phoneField.value = userList[i].phone;
+
+                    this.nameField.classList.add('has-value');
+                    this.emailField.classList.add('has-value');
+                    this.cpfField.classList.add('has-value');
+                    this.phoneField.classList.add('has-value');
+
+                    button.setAttribute("value", "Alterar");
+                    button.classList.add('alter');
+                    button.setAttribute('id', 'alter');
+                }
+
+            }
+        }
+
+    }
+  
 }
 
 module.exports = FormController;

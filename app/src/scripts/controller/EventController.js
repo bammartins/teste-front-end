@@ -1,24 +1,25 @@
 import userController from './UserController.js';
 
-
 class EventHandler{
     constructor(){
         this.user = new userController();
+        this.nameField = document.getElementById('name');
+        this.emailField = document.getElementById('email');
+        this.cpfField = document.getElementById('cpf');
+        this.phoneField = document.getElementById('phone');
     }
 
     buttonClick(){
+        let urlParam = window.location;
+        let parameter = urlParam.search.substring(1);
         let button  = document.getElementById('send');
-        if (button != null){
+        if (button != null && parameter == ""){
             button.addEventListener('click', (e)=>{            
                 e.preventDefault();
                 e.stopPropagation();
-                let nameField  = document.getElementById('name').value;
-                let emailField = document.getElementById('email').value;
-                let cpfField   = document.getElementById('cpf').value;
-                let phoneField = document.getElementById('phone').value;
                 
                 if (button.classList.value.indexOf('disabled') == -1) {
-                    this.user.set(nameField, emailField, cpfField, phoneField);
+                    this.user.set(this.nameField.value, this.emailField.value, this.cpfField.value, this.phoneField.value);
                 }
             });
         }
@@ -31,12 +32,50 @@ class EventHandler{
         if (deleteBtn != null){
             deleteBtn.addEventListener('click', (e) => {
                 e.preventDefault();
-                if ( e.target && e.target.classList.contains( 'delete' ) ) {
+                if (e.target && e.target.classList.contains( 'delete' ) ) {
                     currentEl = e.target;
                     listItem = document.getElementById(currentEl.getAttribute('data-id')).remove();
                     this.user.delete(currentEl.getAttribute('data-id'));
                 }
             });                    
+        }
+    }
+
+    editClick(){
+        let editBtn = document.querySelector('.list-user');
+        let currentEl = null;
+        
+        if (editBtn != null) {
+            editBtn.addEventListener('click', (e) => {
+                e.preventDefault();
+                if (e.target && e.target.classList.contains('edit')){
+                    currentEl = e.target;
+                    document.location.href = `/?editUser=${currentEl.getAttribute('data-id')}`
+                }
+            });
+        }
+    }
+
+    alterClick() {
+        let saveBtn = document.querySelector('form');
+        let urlParam = window.location;
+        let parameter = urlParam.search.substring(1);
+        let id = parameter.split('=');
+
+        if (saveBtn != null) {
+            saveBtn.addEventListener('click', (e) => {
+                e.preventDefault();
+                if (e.target && e.target.classList.contains('alter')) {
+                    this.user.edit(
+                        id[1], 
+                        this.nameField.value, 
+                        this.emailField.value, 
+                        this.cpfField.value, 
+                        this.phoneField.value
+                    );
+
+                }
+            });
         }
     }
 

@@ -12,14 +12,20 @@ const init = () =>{
     const eventHandler = new eventController();
     const formFill = new formController();
     const user = new userController();
+
+    let urlParam = window.location;
+    let parameter = urlParam.search.substring(1);
     
     let inputs = document.querySelectorAll('.material-input');
     let button = document.getElementById('send');
     
     form.animateForm();          
-    eventHandler.buttonClick(); 
-    eventHandler.deleteClick(); 
+    eventHandler.deleteClick();
+    eventHandler.editClick();
+    eventHandler.buttonClick();
+    eventHandler.alterClick();
     eventHandler.maskInputs();
+    formFill.editForm();
     
     for (let i = 0; i < inputs.length; i++) {
         inputs[i].addEventListener("blur", () => {
@@ -30,7 +36,15 @@ const init = () =>{
                 }
             } 
         })
-    }    
+        if (formFill.validateFillFields()) {
+            button.classList.remove('disabled');
+            if (formFill.validateFields()) {
+                form.loadButtonAnimate();
+            }
+        } 
+    }   
+    
+
     user.get();
     user.promiseGet();
 }

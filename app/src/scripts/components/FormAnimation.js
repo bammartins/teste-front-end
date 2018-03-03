@@ -19,13 +19,21 @@ class FormController{
     }
     
     loadButtonAnimate(){
-        let button = document.getElementById('send');
+        let urlParam = window.location;
+        let parameter = urlParam.search.substring(1);
+        let button = null;        
+        if (parameter == "") {
+            button = document.getElementById('send');
+        }else{
+            button = document.getElementById('alter');
+        }
         let loader = document.getElementById('loader');
+        let value = button.getAttribute('value')
         button.addEventListener('click', (e) => {
             button.setAttribute('value', '');
             loader.style.display = "block";
             setTimeout(() => {
-                button.setAttribute('value', 'Cadastrar');
+                button.setAttribute('value', value);
                 loader.style.display = "none";
                 window.location.href = "/listuser.html"
             }, 1500);
