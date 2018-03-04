@@ -12,6 +12,10 @@
         border-bottom:1px solid $default;
         background-color:transparent;
         
+        &.error{
+            border-color: #c43330;
+        }
+
         & + label{
             position:absolute;
             top:10px;
@@ -28,6 +32,9 @@
             border-width:1px;
             border-color:$focus;
             transition: all .2s ease-out;
+            &.error{
+                border-color: #c43330;
+            }
         }
         
         &:focus + label,

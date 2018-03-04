@@ -31,34 +31,42 @@ class FormController{
         const mailRegex = /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?(?:\.[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?)*$/;
         let cpfTest = new cpfValidate();
         if (this.nameField.value.length < 3) {
+            this.nameField.classList.add('error');
             this.errorMessage = "Campo deve conter 3 caracteres ou mais";
             document.getElementById('name-error').innerText = this.errorMessage;
             this.errorCount++;
         } else {
+            this.nameField.classList.remove('error');            
             this.errorCount--;
             document.getElementById('name-error').innerText = "";
         }
         if (cpfTest.validate(this.cpfField.value) == false) {
+            this.cpfField.classList.add('error');
             this.errorMessage = "Este CPF não é válido";
             document.getElementById('cpf-error').innerText = this.errorMessage;
             this.errorCount++;
         } else {
+            this.cpfField.classList.remove('error');
             this.errorCount--;            
             document.getElementById('cpf-error').innerText = "";
         }
         if (!this.emailField.value.match(mailRegex)) {
+            this.emailField.classList.add('error');
             this.errorMessage = "Este Email não é válido";
             document.getElementById('email-error').innerText = this.errorMessage;
             this.errorCount++;
         } else {
+            this.emailField.classList.remove('error');
             this.errorCount--;            
             document.getElementById('email-error').innerText = "";
         }
         if (this.phoneField.value == "") {
+            this.phoneField.classList.add('error');
             this.errorMessage = "Este Telefone não é válido";
             document.getElementById('phone-error').innerText = this.errorMessage;
             this.errorCount++;
         } else {
+            this.phoneField.classList.remove('error');
             this.errorCount--;            
             document.getElementById('phone-error').innerText = "";
         }
