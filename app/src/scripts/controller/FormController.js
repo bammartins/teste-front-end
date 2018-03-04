@@ -13,7 +13,7 @@ class FormController{
     validateFillFields(){
         let inputs = document.querySelectorAll('.material-input');
         let count = 0;
-        
+
         for (let i = 0; i < inputs.length; i++) {
             if (inputs[i].value.length > 0) {
                 count++;
@@ -70,8 +70,6 @@ class FormController{
         }
     }
     
-
-
     editForm() {
         let urlParam = window.location;
         let parameter = urlParam.search.substring(1);

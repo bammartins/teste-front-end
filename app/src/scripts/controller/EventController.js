@@ -78,13 +78,12 @@ class EventHandler{
             });
         }
     }
-
     maskInputs() {
         let cpfField = document.getElementById('cpf');
         let phoneField = document.getElementById('phone');
 
         if (phoneField != null && cpfField != null) {
-            phoneField.addEventListener('keypress', (e) => {               
+            phoneField.addEventListener('keypress', (e) => {                             
                 switch (phoneField.value.length) {
                     case 1:
                         phoneField.value = "(" + phoneField.value;
@@ -98,6 +97,12 @@ class EventHandler{
                     case 14:
                         phoneField.value = phoneField.value.substring(0, 9) + phoneField.value.charAt(10) + '-' + phoneField.value.substring(11);
                         break;
+                }
+
+                if (e.charCode > 47 && e.charCode < 58) {                    
+                    return true;
+                }else{ 
+                    return false;
                 }
 
 
