@@ -102,7 +102,7 @@ class UserController{
         const userList = JSON.parse(localStorage.getItem('users'));
         const url = "https://private-21e8de-rafaellucio.apiary-mock.com/users";
 
-        if (userList == null) {
+        if (userList == null || userList.length == 0) {
             fetch(url, { headers: { "Content-Type": "application/json; charset=utf-8" } })
             .then(res => res.json())
             .then(response => {
