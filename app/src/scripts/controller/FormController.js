@@ -29,7 +29,7 @@ class FormController{
 
     validateFields(){
         const mailRegex = /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?(?:\.[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?)*$/;
-        let cpfTest = new cpfValidate();
+        const cpfTest = new cpfValidate();
         if (this.nameField.value.length < 3) {
             this.nameField.classList.add('error');
             this.errorMessage = "Campo deve conter 3 caracteres ou mais";
@@ -79,10 +79,10 @@ class FormController{
     }
     
     editForm() {
-        let urlParam = window.location;
-        let parameter = urlParam.search.substring(1);
+        const urlParam = window.location;
+        const parameter = urlParam.search.substring(1);
         let id = null;
-        let button = document.getElementById('send');
+        const button = document.getElementById('send');
         if (parameter != "") {
             const userList = JSON.parse(localStorage.getItem('users'));
             id = parameter.split('=');

@@ -1,6 +1,6 @@
 class FormController{
     animateForm(){
-        let fields = document.querySelectorAll('.material-input');
+        const fields = document.querySelectorAll('.material-input');
         for (let index = 0; index < fields.length; index++) {            
             fields[index].addEventListener('change', ()=>{
                 if (fields[index].value != "") {
@@ -19,16 +19,16 @@ class FormController{
     }
     
     loadButtonAnimate(){
-        let urlParam = window.location;
-        let parameter = urlParam.search.substring(1);
+        const urlParam = window.location;
+        const parameter = urlParam.search.substring(1);
         let button = null;        
         if (parameter == "") {
             button = document.getElementById('send');
         }else{
             button = document.getElementById('alter');
         }
-        let loader = document.getElementById('loader');
-        let value = button.getAttribute('value')
+        const loader = document.getElementById('loader');
+        const value = button.getAttribute('value')
         button.addEventListener('click', (e) => {
             button.setAttribute('value', '');
             loader.style.display = "block";

@@ -10,9 +10,9 @@ class EventHandler{
     }
 
     buttonClick(){
-        let urlParam = window.location;
-        let parameter = urlParam.search.substring(1);
-        let button  = document.getElementById('send');
+        const urlParam = window.location;
+        const parameter = urlParam.search.substring(1);
+        const button  = document.getElementById('send');
         if (button != null && parameter == ""){
             button.addEventListener('click', (e)=>{            
                 e.preventDefault();
@@ -24,9 +24,8 @@ class EventHandler{
             });
         }
     }
-
     deleteClick(){
-        let deleteBtn  = document.querySelector('.list-user');
+        const deleteBtn  = document.querySelector('.list-user');
         let currentEl  = null;
         let listItem   = null;
         if (deleteBtn != null){
@@ -40,9 +39,8 @@ class EventHandler{
             });                    
         }
     }
-
     editClick(){
-        let editBtn = document.querySelector('.list-user');
+        const editBtn = document.querySelector('.list-user');
         let currentEl = null;
         
         if (editBtn != null) {
@@ -55,12 +53,11 @@ class EventHandler{
             });
         }
     }
-
     alterClick() {
-        let saveBtn = document.querySelector('form');
-        let urlParam = window.location;
-        let parameter = urlParam.search.substring(1);
-        let id = parameter.split('=');
+        const saveBtn = document.querySelector('form');
+        const urlParam = window.location;
+        const parameter = urlParam.search.substring(1);
+        const id = parameter.split('=');
 
         if (saveBtn != null) {
             saveBtn.addEventListener('click', (e) => {
@@ -79,8 +76,8 @@ class EventHandler{
         }
     }
     maskInputs() {
-        let cpfField = document.getElementById('cpf');
-        let phoneField = document.getElementById('phone');
+        const cpfField = document.getElementById('cpf');
+        const phoneField = document.getElementById('phone');
 
         if (phoneField != null && cpfField != null) {
             phoneField.addEventListener('keypress', (e) => {                             

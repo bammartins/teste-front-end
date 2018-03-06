@@ -14,7 +14,7 @@ class UserController{
         let arrUser = [];
         let newUser = {};
         let id = 1;
-        let validateFields = new validationController();
+        const validateFields = new validationController();
         
         
         if (localStorage.getItem('users') != null){
@@ -54,7 +54,7 @@ class UserController{
             userListEl.innerHTML = '';
 
             userList.forEach((el) => {
-                let listItem = document.createElement('li');
+                const listItem = document.createElement('li');
                 listItem.classList.add('list-user-item');
                 listItem.setAttribute('id', el.id);
                         template = `<div class="user-name-content">
@@ -78,7 +78,7 @@ class UserController{
             if (userList == null || userList.length == 0) {
                 userListEl.innerHTML = '';
                 tempUserList.forEach((el) => {
-                    let listItem = document.createElement('li');
+                    const listItem = document.createElement('li');
                     listItem.classList.add('list-user-item');
                     listItem.setAttribute('id', el.id);
                     template = `<div class="user-name-content">
