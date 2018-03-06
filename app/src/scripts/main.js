@@ -2,6 +2,7 @@ import userController from "./controller/UserController.js"
 import eventController from "./controller/EventController.js"
 import formController from "./controller/FormController.js"
 import formAnimation from "./components/FormAnimation.js"
+import templateHandler from "./components/TemplateHandler.js"
 
 document.addEventListener("DOMContentLoaded", () => {
     init();
@@ -12,6 +13,7 @@ const init = () =>{
     const eventHandler = new eventController();
     const formFill = new formController();
     const user = new userController();
+    const template = new templateHandler();
 
     let urlParam = window.location;
     let parameter = urlParam.search.substring(1);
@@ -42,9 +44,8 @@ const init = () =>{
                 form.loadButtonAnimate();
             }
         } 
-    }   
-    
+    }
 
-    user.get();
+    template.renderList();
     user.promiseGet();
 }
