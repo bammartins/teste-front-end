@@ -33,14 +33,14 @@ const init = () =>{
         inputs[i].addEventListener("blur", () => {
             if (formFill.validateFillFields()) {
                 button.classList.remove('disabled');
-                if(formFill.validateFields()){
+                if(!formFill.validateFields()){
                     form.loadButtonAnimate();
                 }
             } 
         })
         if (formFill.validateFillFields()) {
             button.classList.remove('disabled');
-            if (formFill.validateFields()) {
+            if (!formFill.validateFields()) {
                 form.loadButtonAnimate();
             }
         } 

@@ -38,7 +38,7 @@ class UserController{
             "email": this.email 
         };
 
-        if (validateFields.validateFields()) {
+        if (!validateFields.validateFields()) {
             arrUser.push(newUser);
             localStorage.setItem('users', JSON.stringify(arrUser));
             localStorage.setItem('lastId', this.id);

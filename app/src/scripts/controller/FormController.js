@@ -1,4 +1,5 @@
 import cpfValidate from '../helper/CpfValidate.js';
+import formValidate from "../utils/FormValidate.js";
 
 class FormController{
     constructor(){
@@ -7,7 +8,7 @@ class FormController{
         this.cpfField     = document.getElementById('cpf');
         this.phoneField   = document.getElementById('phone');
         this.errorMessage = null;
-        this.errorCount   = 0;
+        this.error        = false;
     }
 
     validateFillFields(){
@@ -28,54 +29,49 @@ class FormController{
     }
 
     validateFields(){
-        const mailRegex = /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?(?:\.[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?)*$/;
-        const cpfTest = new cpfValidate();
-        if (this.nameField.value.length < 3) {
+        const validateForm = new formValidate()
+        if (!validateForm.validateName(this.nameField.value)) {
             this.nameField.classList.add('error');
             this.errorMessage = "Campo deve conter 3 caracteres ou mais";
             document.getElementById('name-error').innerText = this.errorMessage;
-            this.errorCount++;
+            this.error = true;
         } else {
             this.nameField.classList.remove('error');            
-            this.errorCount--;
+            this.error = false;
             document.getElementById('name-error').innerText = "";
         }
-        if (cpfTest.validate(this.cpfField.value) == false) {
+        if (!validateForm.validateCpf(this.cpfField.value)) {
             this.cpfField.classList.add('error');
             this.errorMessage = "Este CPF não é válido";
             document.getElementById('cpf-error').innerText = this.errorMessage;
-            this.errorCount++;
+            this.error = true;
         } else {
             this.cpfField.classList.remove('error');
-            this.errorCount--;            
+            this.error = false;        
             document.getElementById('cpf-error').innerText = "";
         }
-        if (!this.emailField.value.match(mailRegex)) {
+        if (!validateForm.validateEmail(this.emailField.value)) {
             this.emailField.classList.add('error');
             this.errorMessage = "Este Email não é válido";
             document.getElementById('email-error').innerText = this.errorMessage;
-            this.errorCount++;
+            this.error = true;
         } else {
             this.emailField.classList.remove('error');
-            this.errorCount--;            
+            this.error = false;         
             document.getElementById('email-error').innerText = "";
         }
-        if (this.phoneField.value == "") {
+        if (!validateForm.validatePhone(this.phoneField.value)) {
             this.phoneField.classList.add('error');
             this.errorMessage = "Este Telefone não é válido";
             document.getElementById('phone-error').innerText = this.errorMessage;
-            this.errorCount++;
+            this.error = true;
         } else {
             this.phoneField.classList.remove('error');
-            this.errorCount--;            
+            this.error = false;            
             document.getElementById('phone-error').innerText = "";
         }
 
-        if (this.errorCount > 0) {
-            return false;
-        } else {
-            return true;
-        }
+        return this.error;
     }
     
     editForm() {
