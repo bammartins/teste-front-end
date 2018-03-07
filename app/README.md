@@ -58,6 +58,34 @@ $ cd app/src/
 ```
 This is your source files directory
 
+## Tests
+
+To run unit tests you need to enter in your root directory
+
+Follow next steps
+
+```sh
+$ cd app/
+
+$ npm test
+
+```
+
+You'll see some logs with returns of unit tests.
+
+## Tests Directory
+
+To see your unit tests code source run command below on terminal inside root directory
+
+Or open that in your favorite text editor.
+
+> app > test
+
+```sh
+
+$ cd test
+
+```
 Enjoy ;)
 
 ## Credits
